@@ -11,7 +11,11 @@ import SwiftUI
 struct landmarksApp: App {
     var body: some Scene {
         WindowGroup {
-            LandmarkList()
+            NavigationView{
+                LandmarkList()
+                .navigationTitle("Landmarks")
+            }
+            
         }
     }
 }

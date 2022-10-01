@@ -9,18 +9,15 @@ import SwiftUI
 
 
 struct LandmarkList: View {
-
-    private var datasource: [Landmark] = [
-        Landmark(identifier: "123", name: "London Bridge"),
-        Landmark(identifier: "124", name: "The Big Ben"),
-        Landmark(identifier: "125", name: "Le Louvre"),
-        Landmark(identifier: "126", name: "Stonehenge"),
-    ]
+    
+    @StateObject private var viewModel  = LandmarkListViewModel();
 
     var body: some View {
-        List(datasource, id: \.identifier) {
-            landmark in LandmarkRow(landmark: landmark)
-        }
+        
+            List(viewModel.landmarks) {
+                landmark in LandmarkRow(landmark: landmark)
+            }
+
     }
 }
 
